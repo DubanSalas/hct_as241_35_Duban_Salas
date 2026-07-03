@@ -1,0 +1,18 @@
+server:
+  port: ${PORT:8083}
+
+spring:
+  application:
+    name: ms-cliente
+
+  r2dbc:
+    url: r2dbc:postgresql://ep-old-brook-ahy7j27u-pooler.c-3.us-east-1.aws.neon.tech/neondb
+    username: neondb_owner
+    password: npg_txX43wpkKcqg
+    properties:
+      sslMode: REQUIRE
+      options: endpoint=ep-old-brook-ahy7j27u
+
+logging:
+  level:
+    pe.edu.vallegrande: DEBUG

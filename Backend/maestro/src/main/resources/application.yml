@@ -1,0 +1,27 @@
+server:
+  port: ${PORT:8081}
+
+spring:
+  application:
+    name: ms-alquiler
+
+  sql:
+    init:
+      mode: always
+      platform: postgresql
+
+  r2dbc:
+    url: r2dbc:postgresql://ep-old-brook-ahy7j27u-pooler.c-3.us-east-1.aws.neon.tech/neondb
+    username: neondb_owner
+    password: npg_txX43wpkKcqg
+    properties:
+      sslMode: REQUIRE
+      options: endpoint=ep-old-brook-ahy7j27u
+
+ms:
+  cliente:
+    url: ${MS_CLIENTE_URL:http://localhost:8083}
+
+logging:
+  level:
+    pe.edu.vallegrande: DEBUG

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: duban-salas-35-deployment
+  namespace: duban-salas-35-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: duban-salas-35-deployment        # Debe coincidir con las etiquetas del Service
+  template:
+    metadata:
+      labels:
+        app: duban-salas-35-deployment      # Debe coincidir con las etiquetas del Service
+    spec:
+      containers:
+      - name: duban-salas-35-container
+        image: salasnapandubanalexander/hct-cliente   # Imagen Docker Hub
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: duban-salas-35-secret  # Esto cargará todos los valores como variables de entorno
